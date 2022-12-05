@@ -25,8 +25,8 @@
 (defmethod overlaps ((range1 range) (range2 range))
   (with-accessors ((s1 start) (e1 end)) range1
     (with-accessors ((s2 start) (e2 end)) range2
-      (or (>= e1 s2)
-          (<= e2 s1)))))
+      (and (<= s1 e2)
+           (>= e1 s2)))))
 
 (defun str->range (str)
   (let ((range (uiop:split-string str :separator '(#\-))))
@@ -56,5 +56,4 @@
     (mapcar #'(lambda (ranges)
                 (overlaps (car ranges) (cadr ranges))))
     (remove-if #'null)
-    (length)
-    ))
+    (length)))
