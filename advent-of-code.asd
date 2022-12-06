@@ -14,7 +14,11 @@
                  (:module "day3"
                   :components ((:file "day3")))
                  (:module "day4"
-                  :components ((:file "day4"))))))
+                  :components ((:file "day4")))
+                 (:module "day5"
+                  :components ((:file "day4")))
+                 (:module "day6"
+                  :components ((:file "day6"))))))
   :description ""
   :in-order-to ((test-op (test-op "advent-of-code/tests"))))
 
