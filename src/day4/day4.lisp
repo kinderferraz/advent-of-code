@@ -35,8 +35,7 @@
 
 (defun flat-map (function list)
   (mapcar #'(lambda (l)
-              (->> l
-                (mapcar function)))
+              (mapcar function))
             list))
 
 (defun run (file)
