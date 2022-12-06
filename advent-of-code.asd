@@ -3,7 +3,7 @@
   :author "kinder ferraz"
 ;;  :email "ferraz.alkindar@gmail.com"
   :license "MIT"
-  :depends-on (:alexandria :arrow-macros)
+  :depends-on (:alexandria :arrow-macros :str)
   :components ((:module "src"
                 :components
                 ((:file "main")
