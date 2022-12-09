@@ -4,7 +4,7 @@
 (in-package :day2)
 
 ;;;;;; input
-(defun read-game (file &optional decode-f)
+(defun read-game (file &optional (decode-f #'moves))
   (let ((in (open file)))
     (progn
       (let ((game (read-all-matches in nil decode-f)))

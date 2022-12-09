@@ -1,6 +1,8 @@
 (defpackage day3
   (:use :cl :arrow-macros))
 
+(in-package :day3)
+
 (defun run (file)
   (->> (uiop:read-file-lines file)
     (split-sacks)
@@ -14,8 +16,7 @@
     (mapcar #'(lambda (group) (mapcar #'str->set group)))
     (find-repeated)
     (flat-map #'char->point)
-    (reduce #'+)
-    ))
+    (reduce #'+)))
 
 (defun split-sacks (sacks)
   (mapcar #'(lambda (sack)
@@ -57,14 +58,11 @@
     (cond ((majuscule int) (+ 26 (- int 64)))
           ((miniscule int) (- int 96)))))
 
-j(defun flat-map (function list)
+(defun flat-map (function list)
   (mapcar #'(lambda (char-list)
-              (->> char-list
-                (mapcar function)
-                (reduce #'append)))
+              (reduce #'append (mapcar function char-list)))
             list))
 
 ;;(run #p"/home/kinder/Documents/lisps/advent-of-code/src/day3/input/teste.in")
 ;;(run #p"/home/kinder/Documents/lisps/advent-of-code/src/day3/input/day3.in")
-
 

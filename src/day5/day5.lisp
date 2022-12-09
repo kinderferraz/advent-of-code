@@ -65,7 +65,7 @@
   (let ((crane nil))
     (destructuring-bind (amount from to) (get-instructions move)
       (dotimes (i amount)
-        (push (pop (nth (1- from)) crates) crane))
+        (push (pop (nth (1- from) crates)) crane))
       (dotimes (i amount)
         (push (pop crane) (nth (1- to) crates))))))
 
